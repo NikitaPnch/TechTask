@@ -24,28 +24,27 @@ class NewsRepository(private val api: Everything, private val newsDao: NewsDao) 
         newsDao.updateNews(articles.asDatabaseModel())
     }
 
-    // получить текущие новости из бд
-    private suspend fun getNews(): List<DBNews> {
-        return newsDao.getNews()
-    }
-
     // получает свежие новости из текущей страны
     suspend fun getEverything() = withContext(Dispatchers.IO) {
         api.searchEverything(currentPage).await().let {
-            if (totalPages == 0) {
-                totalPages = it.totalResults / Constants.PAGE_SIZE
-            }
-            if (currentPage < totalPages) {
-                withContext(Dispatchers.Main) {
-                    hasNext.value = true
-                }
-                currentPage++
-            } else {
-                withContext(Dispatchers.Main) {
-                    hasNext.value = false
-                }
-            }
+            getTotalPages(it.totalResults)
+            updatePage()
             updateNews(it.articles)
+        }
+    }
+
+    private fun getTotalPages(totalResults: Int) {
+        if (totalPages == 0) {
+            totalPages = totalResults / Constants.PAGE_SIZE
+        }
+    }
+
+    private suspend fun updatePage() = withContext(Dispatchers.Main) {
+        if (currentPage < totalPages) {
+            hasNext.value = true
+            currentPage++
+        } else {
+            hasNext.value = false
         }
     }
 }

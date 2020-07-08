@@ -13,11 +13,11 @@ class MainViewModel(private val newsRepository: NewsRepository) : BaseViewModel(
         super.listen(action)
 
         when (action) {
-
             is MainActions.GetEverything -> getEverything()
         }
     }
 
+    // получает новости
     private suspend fun getEverything() {
         isLoading.value = true
         newsRepository.getEverything()

@@ -76,6 +76,7 @@ class MainActivity : AppCompatActivity() {
             }
             .autoDispose(scope())
             .subscribe {
+                isErrorShow = false
                 everythingAdapter.removeError()
                 everythingAdapter.addLoading()
                 getEverything()
