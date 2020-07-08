@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TechTask</string>
+    <string name="error">Произошла ошибка, нажмите</string>
+    <string name="error_repeat">&#160;повторить</string>
 </resources>
