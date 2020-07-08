@@ -1,4 +1,4 @@
-package com.example.techtask
+package com.example.techtask.ui
 
 import android.net.Uri
 import android.os.Bundle
@@ -10,11 +10,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import autodispose2.androidx.lifecycle.scope
 import autodispose2.autoDispose
+import com.example.techtask.Constants
+import com.example.techtask.Events
+import com.example.techtask.R
 import com.example.techtask.extensions.ConnectionLiveData
 import com.example.techtask.extensions.debounce
 import com.example.techtask.extensions.liveDataNotNull
 import com.example.techtask.extensions.observeNotNull
-import com.example.techtask.ui.EverythingAdapter
 import com.example.techtask.viewmodel.Actions
 import com.example.techtask.viewmodel.MainActions
 import com.example.techtask.viewmodel.MainViewModel
