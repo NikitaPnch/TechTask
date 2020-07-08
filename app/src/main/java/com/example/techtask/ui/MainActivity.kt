@@ -104,7 +104,9 @@ class MainActivity : AppCompatActivity() {
             everythingAdapter.removeLoading()
             everythingAdapter.setData(it)
             model.hasNext.value?.let { hasNext ->
-                showOrRemoveLoader(hasNext)
+                if (hasNext) {
+                    everythingAdapter.addLoading()
+                }
             }
         }
 
@@ -120,15 +122,6 @@ class MainActivity : AppCompatActivity() {
     // отправляет запрос в VM на получение новостей
     private fun getEverything() {
         model.send { MainActions.GetEverything() }
-    }
-
-    // показывает или скрывает прелоудер
-    private fun showOrRemoveLoader(hasNext: Boolean) {
-        if (hasNext) {
-            everythingAdapter.addLoading()
-        } else {
-            everythingAdapter.removeLoading()
-        }
     }
 
     // показать или скрыть ошибку
