@@ -1,4 +1,4 @@
-package com.example.techtask.api
+package com.example.techtask.api.requests
 
 import com.example.techtask.Constants
 import com.example.techtask.api.model.APINews

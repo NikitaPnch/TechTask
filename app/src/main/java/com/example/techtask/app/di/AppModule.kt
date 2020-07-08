@@ -3,7 +3,7 @@ package com.example.techtask.app.di
 import android.app.Application
 import androidx.room.Room
 import com.example.techtask.Constants
-import com.example.techtask.api.Everything
+import com.example.techtask.api.requests.Everything
 import com.example.techtask.db.AppDatabase
 import com.example.techtask.db.dao.NewsDao
 import com.example.techtask.db.repository.NewsRepository

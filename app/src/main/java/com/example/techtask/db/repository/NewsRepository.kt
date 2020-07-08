@@ -3,9 +3,9 @@ package com.example.techtask.db.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.techtask.Constants
-import com.example.techtask.api.Everything
 import com.example.techtask.api.model.APINews
 import com.example.techtask.api.model.asDatabaseModel
+import com.example.techtask.api.requests.Everything
 import com.example.techtask.db.DBNews
 import com.example.techtask.db.dao.NewsDao
 import kotlinx.coroutines.Dispatchers
